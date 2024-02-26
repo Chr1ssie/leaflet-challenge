@@ -1,3 +1,5 @@
+// define api key
+API_KEY = "pk.eyJ1Ijoia2VzaGlhMzMiLCJhIjoiY2xzcno3Zm9xMDh6cDJxbXEzeXBheWRtYyJ9.9vJSws-80KcK7GHvf98DwA"
 //set global variable
 var myMap={};
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
@@ -7,7 +9,7 @@ d3.json(queryUrl).then(data=>{
     createFeatures(data.features);
 });
 
-//set colors
+
 var hue = ["#7CFC00","#DFFF00","#FFF31","#F4C430","#FF7518","#FF0800"];
 function circleHue(magnitude){
     if(magnitude < 1) {
@@ -58,18 +60,19 @@ function createFeatures(earthquakeData){
     //add layer to the createMap function
     createMap(earthquakes);
 }
-
+//https://api.mapbox.com/styles/v1/keshia33/clss1wl8e04or01pfch28axas.html?title=view&access_token=pk.eyJ1Ijoia2VzaGlhMzMiLCJhIjoiY2xzcno3Zm9xMDh6cDJxbXEzeXBheWRtYyJ9.9vJSws-80KcK7GHvf98DwA&zoomwheel=true&fresh=true#2/38/-34
+//set colors
 //create map layers
 function createMap(earthquakes){
     //create tile layer
-    var satellitemap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={access_token}",{
+    var satellitemap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token=pk.eyJ1Ijoia2VzaGlhMzMiLCJhIjoiY2xzcno3Zm9xMDh6cDJxbXEzeXBheWRtYyJ9.9vJSws-80KcK7GHvf98DwA",{
         attribution: "Map data&copy;<a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
         maxZoom: 18,
         id: "mapbox.satellite",
         accessToken: API_KEY
     });
 
-    var lightmap = L.tilelayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={access_token}",{
+    var lightmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token=pk.eyJ1Ijoia2VzaGlhMzMiLCJhIjoiY2xzcno3Zm9xMDh6cDJxbXEzeXBheWRtYyJ9.9vJSws-80KcK7GHvf98DwA",{
         attribution: "Map data&copy;<a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
         maxZoom: 18,
         id: "light-v10",
@@ -77,7 +80,7 @@ function createMap(earthquakes){
 
     });
 
-    var terrainmap= L.tilelayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={access_token}",{
+    var terrainmap= L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token=pk.eyJ1Ijoia2VzaGlhMzMiLCJhIjoiY2xzcno3Zm9xMDh6cDJxbXEzeXBheWRtYyJ9.9vJSws-80KcK7GHvf98DwA",{
         attribution: "Map data&copy;<a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
         maxZoom: 18,
         id: "light-v10",
