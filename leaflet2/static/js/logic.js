@@ -1,2 +1,0 @@
-var myMap ={};
-var controlLayers ={};
